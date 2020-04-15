@@ -1,4 +1,4 @@
-package com.javasampleapproach.springsecurity.jdbcauthentication;
+package com.muttsapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
