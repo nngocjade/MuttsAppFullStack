@@ -1,45 +1,41 @@
 package com.muttsapp.controller;
 
 
+import com.muttsapp.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
-
 @Controller
 public class LoginController {
 
-   
+    @Autowired
+    UserService userService;
+
     @RequestMapping(value="/")
     public String home(){
 
-        return "home";
+        return "redirect:/index";
     }
-   
-    @RequestMapping(value="/user")
-    public String user(Authentication authentication){
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        System.out.println("User has authorities: " + userDetails.getAuthorities());
 
-        return "user";
+    @RequestMapping(value="/index")
+    public String getMainPage(Authentication auth, Model model){
+//        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+//        System.out.println("User has authorities: " + userDetails.getAuthorities());
+        int user_id = userService.findUserIdByEmail(auth.getName());
+        model.addAttribute("user_id", user_id);
+        return "admin/muttsApp";
     }
-  
-    @RequestMapping(value="/admin")
-    public String admin(Model model){
 
-        return "admin";
-
-    }
-   
     @RequestMapping(value="/login")
     public String login(){
 
         return "login";
     }
-   
+
     @RequestMapping(value="/403")
     public String Error403(){
 

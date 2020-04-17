@@ -16,4 +16,8 @@ public class UserService {
     public ArrayList<User> getAllUsers(){
         return userMapper.getAllUsers();
     }
+
+    public int findUserIdByEmail(String email) {
+        return userMapper.findUserIDByEmail(email);
+    }
 }
