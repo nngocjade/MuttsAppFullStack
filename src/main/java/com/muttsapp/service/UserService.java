@@ -17,9 +17,7 @@ public class UserService {
         return userMapper.getAllUsers();
     }
 
-    public User getUserById()
-
-    public int findUserIdByEmail(String email) {
+    public User findUserIdByEmail(String email) {
         return userMapper.findUserIDByEmail(email);
     }
 }

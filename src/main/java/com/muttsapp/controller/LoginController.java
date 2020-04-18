@@ -1,6 +1,7 @@
 package com.muttsapp.controller;
 
 
+import com.muttsapp.model.User;
 import com.muttsapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -25,7 +26,7 @@ public class LoginController {
     public String getMainPage(Authentication auth, Model model){
 //        UserDetails userDetails = (UserDetails) auth.getPrincipal();
 //        System.out.println("User has authorities: " + userDetails.getAuthorities());
-        int user_id = userService.findUserIdByEmail(auth.getName());
+        User user_id = userService.findUserIdByEmail(auth.getName());
         model.addAttribute("user_id", user_id);
         return "admin/muttsApp";
     }
