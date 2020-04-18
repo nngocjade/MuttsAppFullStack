@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 @RestController
@@ -27,11 +26,11 @@ public class UserController {
         return obj;
     }
 
-//    @GetMapping("/{id}")
-//    public User getById(
-//            @PathVariable(value="id") int id){
-//                return userService.getByID(id);
-//    }
+    @GetMapping("/{id}")
+    public User getById(
+            @PathVariable(value="id") int id){
+                return userService.findUserByID(id);
+    }
 
 
 
