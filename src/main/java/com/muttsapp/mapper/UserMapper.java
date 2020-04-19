@@ -13,10 +13,14 @@ public interface UserMapper {
 
     String SELECT_USER_ID_BY_EMAIL = "select user_id from `muttsappdb`.user where email = #{email}";
 
+    String SELECT_USER_BY_ID = "select * from `muttsappdb`.user where user_id = #{user_id}";
+
     @Select(SELECT_ALL_USERS)
     public ArrayList<User> getAllUsers();
 
     @Select(SELECT_USER_ID_BY_EMAIL)
     User findUserIDByEmail(String email);
 
+    @Select(SELECT_USER_BY_ID)
+    User findUserById(int id);
 }

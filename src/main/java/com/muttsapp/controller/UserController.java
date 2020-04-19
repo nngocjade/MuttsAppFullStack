@@ -26,11 +26,11 @@ public class UserController {
         return obj;
     }
 
-//    @GetMapping("/{id}")
-//    public User getById(
-//            @PathVariable(value="id") int id){
-//                return userService.getUserById(id);
-//    }
+    @GetMapping("/{id}")
+    public User getUserById(
+            @PathVariable(value="id") int id){
+                return userService.getUserById(id);
+    }
 
 
 

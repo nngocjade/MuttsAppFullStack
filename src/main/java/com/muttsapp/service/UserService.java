@@ -20,4 +20,8 @@ public class UserService {
     public User findUserIdByEmail(String email) {
         return userMapper.findUserIDByEmail(email);
     }
+
+    public User getUserById(int id) {
+        return userMapper.findUserById(id);
+    }
 }
