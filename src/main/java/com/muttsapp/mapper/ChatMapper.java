@@ -17,11 +17,11 @@ public interface ChatMapper {
             "on m.chat_id = c.id " +
             "join user_chats uc " +
             "on uc.chat_id = c.id " +
-            "where uc.user_id = #{user_id} " +
-            "and m.user_id != #{user_id} " +
+            "where uc.user_id = #{id} " +
+            "and m.user_id != #{id} " +
             "group by chat_id, sender_id " +
             "order by m.date_sent asc";
 
     @Select(SELECT_USER_CHATS_BY_ID)
-    public ArrayList<UserChats> findAllUserChatsById();
+    public ArrayList<UserChats> findAllUserChatsById(int id);
 }

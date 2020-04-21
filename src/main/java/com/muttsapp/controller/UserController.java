@@ -42,8 +42,11 @@ public class UserController {
             @PathVariable(value="id") int id
     ){
         CustomResponseObject<ArrayList<UserChats>> obj = new CustomResponseObject<>();
-        obj.setData(chatService.getAllUserChats());
+        obj.setData(chatService.getAllUserChats(id));
         return obj;
     }
+
+//    @GetMapping("/{id}/chats/{other_id}")
+//    public CustomResponseObject
 
 }

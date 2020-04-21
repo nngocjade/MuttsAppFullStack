@@ -21,7 +21,7 @@ public class UserService {
         return userMapper.findUserIDByEmail(email);
     }
 
-    public User getUserById(int id) {
-        return userMapper.findUserById(id);
+    public User getUserById(int user_id) {
+        return userMapper.findUserById(user_id);
     }
 }
