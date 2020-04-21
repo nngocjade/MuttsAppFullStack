@@ -4,6 +4,7 @@ package com.muttsapp.controller;
 import com.muttsapp.model.CustomResponseObject;
 import com.muttsapp.model.User;
 import com.muttsapp.model.UserChats;
+import com.muttsapp.service.ChatService;
 import com.muttsapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    ChatService chatService;
+
     @GetMapping
     public CustomResponseObject<ArrayList<User>> getAllUsers(){
         CustomResponseObject<ArrayList<User>> obj = new CustomResponseObject<>();
@@ -34,9 +38,11 @@ public class UserController {
     }
 
     @GetMapping("/{id}/chats")
-    public CustomResponseObject<ArrayList<UserChats>> getAllChats(){
+    public CustomResponseObject<ArrayList<UserChats>> getAllChatsByUserId(
+            @PathVariable(value="id") int id
+    ){
         CustomResponseObject<ArrayList<UserChats>> obj = new CustomResponseObject<>();
-        obj.setData(chatService.getAllChats());
+        obj.setData(chatService.getAllUserChats());
         return obj;
     }
 
