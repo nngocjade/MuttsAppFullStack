@@ -22,6 +22,20 @@ public interface ChatMapper {
             "group by chat_id, sender_id " +
             "order by m.date_sent asc";
 
+    String SELECT_PHOTO_URL = "Select photo_url from user " +
+            "where user_id = #{user_id} ";
+
+    String SELECT_LAST_MESSAGE = "Select message, date_sent from messages " +
+            "where chat_id = #{user_id} " +
+            "order by id desc limit 1";
+
     @Select(SELECT_USER_CHATS_BY_ID)
     public ArrayList<UserChats> findAllUserChatsById(int id);
+
+    @Select(SELECT_PHOTO_URL)
+    String FindPhotoURL(int sender_id);
+
+    @Select(SELECT_LAST_MESSAGE)
+    String getLastMessage(int chat_id);
+
 }
