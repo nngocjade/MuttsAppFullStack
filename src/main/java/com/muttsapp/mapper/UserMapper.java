@@ -22,5 +22,5 @@ public interface UserMapper {
     User findUserIDByEmail(String email);
 
     @Select(SELECT_USER_BY_ID)
-    User findUserById(int id);
+    ArrayList<User> findUserById(int id);
 }

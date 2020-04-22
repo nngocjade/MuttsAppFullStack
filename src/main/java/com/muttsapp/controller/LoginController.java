@@ -18,7 +18,6 @@ public class LoginController {
 
     @RequestMapping(value="/")
     public String home(){
-
         return "redirect:/index";
     }
 
@@ -33,13 +32,12 @@ public class LoginController {
 
     @RequestMapping(value="/login")
     public String login(){
-
         return "login";
     }
 
     @RequestMapping(value="/403")
     public String Error403(){
-
         return "403";
     }
+
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @Mapper
 public interface ChatMapper {
 
-    String SELECT_USER_CHATS_BY_ID = "select distinct(c.chat_title) as chat_name, c.id as chat_id, " +
+    String FIND_USER_CHATS_BY_ID = "select distinct(c.chat_title) as chat_name, c.id as chat_id, " +
             "m.user_id as sender_id " +
             "from chats c " +
             "join messages m " +
@@ -22,20 +22,40 @@ public interface ChatMapper {
             "group by chat_id, sender_id " +
             "order by m.date_sent asc";
 
-    String SELECT_PHOTO_URL = "Select photo_url from user " +
+    String FIND_PHOTO_URL = "Select photo_url from user " +
             "where user_id = #{user_id} ";
 
-    String SELECT_LAST_MESSAGE = "Select message, date_sent from messages " +
+    String GET_LAST_MESSAGE = "Select message, date_sent from messages " +
             "where chat_id = #{user_id} " +
             "order by id desc limit 1";
 
-    @Select(SELECT_USER_CHATS_BY_ID)
+    String FIND_CHAT_ID_FOR_USERS_ID = "select uc.chat_id" +
+            "from user_chats uc " +
+            "where uc.user_id = #{param1} " +
+            "or uc.user_id = #{param2} " +
+            "group by uc.chat_id " +
+            "order by count(uc.chat_id) desc " +
+            "limit 1";
+
+    String FIND_MESSAGE_BY_CHAT_ID = "select m.id, m.message, m.date_sent, m.chat_id, m.user_id as sender_id, c.chat_title " +
+            "from message m " +
+            "join chats c " +
+            "on m.chat_id = c.id " +
+            "where m.chat_id = #{chat_id} " +
+            "order by m.date_sent asc;";
+
+    @Select(FIND_USER_CHATS_BY_ID)
     public ArrayList<UserChats> findAllUserChatsById(int id);
 
-    @Select(SELECT_PHOTO_URL)
-    String FindPhotoURL(int sender_id);
+    @Select(FIND_PHOTO_URL)
+    String findPhotoURL(int sender_id);
 
-    @Select(SELECT_LAST_MESSAGE)
+    @Select(GET_LAST_MESSAGE)
     String getLastMessage(int chat_id);
 
+    @Select(FIND_CHAT_ID_FOR_USERS_ID)
+    int findChatIdForUserIds(int id, int chat_id);
+
+    @Select(FIND_MESSAGE_BY_CHAT_ID)
+    ArrayList<UserChats> findMessageByChatId(int chat_id);
 }

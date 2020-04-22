@@ -17,7 +17,7 @@ public class ChatService {
         ArrayList<UserChats> chats = chatMapper.findAllUserChatsById(id);
 
         for (UserChats c : chats){
-            c.setPhoto_url(chatMapper.FindPhotoURL(c.getSender_id()));
+            c.setPhoto_url(chatMapper.findPhotoURL(c.getSender_id()));
             c.setLast_message(chatMapper.getLastMessage(c.getChat_id()));
         }
         return chats;

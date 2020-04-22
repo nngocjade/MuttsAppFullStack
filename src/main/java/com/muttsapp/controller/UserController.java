@@ -32,9 +32,11 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserById(
+    public CustomResponseObject<ArrayList<User>> getUserById(
             @PathVariable(value="id") int id){
-                return userService.getUserById(id);
+        CustomResponseObject<ArrayList<User>> obj = new CustomResponseObject<>();
+        obj.setData(userService.getUserById(id));
+                return obj;
     }
 
     @GetMapping("/{id}/chats")
@@ -46,7 +48,14 @@ public class UserController {
         return obj;
     }
 
-//    @GetMapping("/{id}/chats/{other_id}")
-//    public CustomResponseObject
+    @GetMapping("/{id}/chats/{other_id}")
+    public CustomResponseObject<ArrayList<UserChats>> getSpecificChatByUserId(
+            @PathVariable(value="id") int id,
+            @PathVariable(value="other_id") int other_id
+    ){
+        CustomResponseObject<ArrayList<UserChats>> obj = new CustomResponseObject<>();
+        obj.setData(userService.getSpecificChat(id, other_id));
+        return obj;
+    }
 
 }
