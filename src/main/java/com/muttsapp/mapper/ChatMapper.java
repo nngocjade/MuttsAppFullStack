@@ -29,7 +29,7 @@ public interface ChatMapper {
             "where chat_id = #{user_id} " +
             "order by id desc limit 1";
 
-    String FIND_CHAT_ID_FOR_USERS_ID = "select uc.chat_id" +
+    String FIND_CHAT_ID_FOR_USERS_ID = "select uc.chat_id " +
             "from user_chats uc " +
             "where uc.user_id = #{param1} " +
             "or uc.user_id = #{param2} " +
@@ -38,7 +38,7 @@ public interface ChatMapper {
             "limit 1";
 
     String FIND_MESSAGE_BY_CHAT_ID = "select m.id, m.message, m.date_sent, m.chat_id, m.user_id as sender_id, c.chat_title " +
-            "from message m " +
+            "from messages m " +
             "join chats c " +
             "on m.chat_id = c.id " +
             "where m.chat_id = #{chat_id} " +
