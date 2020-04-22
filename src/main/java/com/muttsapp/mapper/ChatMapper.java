@@ -1,6 +1,7 @@
 package com.muttsapp.mapper;
 
 
+import com.muttsapp.model.Message;
 import com.muttsapp.model.UserChats;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -57,5 +58,5 @@ public interface ChatMapper {
     int findChatIdForUserIds(int id, int chat_id);
 
     @Select(FIND_MESSAGE_BY_CHAT_ID)
-    ArrayList<UserChats> findMessageByChatId(int chat_id);
+    ArrayList<Message> findMessagesByChatId(int chat_id);
 }

@@ -1,11 +1,14 @@
 package com.muttsapp.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class UserChats {
     String chat_name;
     int chat_id;
     String last_message;
     int sender_id;
-    int date_sent;
+    Date date_sent;
     String photo_url;
 
     public String getChat_name() {
@@ -40,11 +43,17 @@ public class UserChats {
         this.sender_id = sender_id;
     }
 
-    public int getDate_sent() {
-        return date_sent;
+    public String getDate_sent() {
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf.applyPattern("dd/MM/yyyy hh:mm:ss");
+        String formatedDate = sdf.format(date_sent);
+        //sdf.format(new date()) would return date for the current moment and time
+
+        return formatedDate;
     }
 
-    public void setDate_sent(int date_sent) {
+    public void setDate_sent(Date date_sent) {
+
         this.date_sent = date_sent;
     }
 

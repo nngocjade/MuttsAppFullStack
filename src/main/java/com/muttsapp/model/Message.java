@@ -4,9 +4,9 @@ public class Message {
 
     int id;
     String message;
-    int date_sent;
+    String date_sent;
     int chat_id;
-    int user_id;
+    int sender_id;
 
     public int getId() {
         return id;
@@ -24,11 +24,11 @@ public class Message {
         this.message = message;
     }
 
-    public int getDate_sent() {
+    public String getDate_sent() {
         return date_sent;
     }
 
-    public void setDate_sent(int date_sent) {
+    public void setDate_sent(String date_sent) {
         this.date_sent = date_sent;
     }
 
@@ -40,11 +40,11 @@ public class Message {
         this.chat_id = chat_id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getSender_id() {
+        return sender_id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setSender_id(int sender_id) {
+        this.sender_id = sender_id;
     }
 }

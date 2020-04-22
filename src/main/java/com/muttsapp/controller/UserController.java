@@ -2,6 +2,7 @@ package com.muttsapp.controller;
 
 
 import com.muttsapp.model.CustomResponseObject;
+import com.muttsapp.model.Message;
 import com.muttsapp.model.User;
 import com.muttsapp.model.UserChats;
 import com.muttsapp.service.ChatService;
@@ -49,11 +50,11 @@ public class UserController {
     }
 
     @GetMapping("/{id}/chats/{other_id}")
-    public CustomResponseObject<ArrayList<UserChats>> getSpecificChatByUserId(
+    public CustomResponseObject<ArrayList<Message>> getSpecificChatByUserId(
             @PathVariable(value="id") int id,
             @PathVariable(value="other_id") int other_id
     ){
-        CustomResponseObject<ArrayList<UserChats>> obj = new CustomResponseObject<>();
+        CustomResponseObject<ArrayList<Message>> obj = new CustomResponseObject<>();
         obj.setData(userService.getSpecificChat(id, other_id));
         return obj;
     }
