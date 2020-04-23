@@ -1,5 +1,5 @@
 let userId = document.getElementById("user_id").value;
-let baseUrl ="localhost:8080"
+let baseUrl ="http://localhost:8080"
 //let baseUrl = "http://demo.codingnomads.co:8082/muttsapp";
 
 //--------------------   CREATE CHAT BUBBLE   --------------------//

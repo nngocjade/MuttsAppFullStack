@@ -8,7 +8,7 @@ public class UserChats {
     int chat_id;
     String last_message;
     int sender_id;
-    Date date_sent;
+    String date_sent;
     String photo_url;
 
     public String getChat_name() {
@@ -44,15 +44,11 @@ public class UserChats {
     }
 
     public String getDate_sent() {
-        SimpleDateFormat sdf = new SimpleDateFormat();
-        sdf.applyPattern("dd/MM/yyyy hh:mm:ss");
-        String formatedDate = sdf.format(date_sent);
-        //sdf.format(new date()) would return date for the current moment and time
 
-        return formatedDate;
+        return date_sent;
     }
 
-    public void setDate_sent(Date date_sent) {
+    public void setDate_sent(String date_sent) {
 
         this.date_sent = date_sent;
     }

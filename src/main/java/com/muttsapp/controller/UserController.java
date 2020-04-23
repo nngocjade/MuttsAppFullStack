@@ -8,10 +8,7 @@ import com.muttsapp.model.UserChats;
 import com.muttsapp.service.ChatService;
 import com.muttsapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -49,6 +46,8 @@ public class UserController {
         return obj;
     }
 
+//    -----------------GETTING SPECIFIC CHATS-------------------------
+
     @GetMapping("/{id}/chats/{other_id}")
     public CustomResponseObject<ArrayList<Message>> getSpecificChatByUserId(
             @PathVariable(value="id") int id,
@@ -59,4 +58,15 @@ public class UserController {
         return obj;
     }
 
+//    -------------------------POST REQUEST-----------------------------
+
+    @PostMapping("/{id}/chats/{other_id}")
+    public CustomResponseObject<UserChats>  createNewChat(
+            @PathVariable(value="id")int id,
+            @PathVariable(value="other_id")int other_id,
+            @RequestBody UserChats userChats){
+        CustomResponseObject<UserChats> obj = new ResponseObject();
+        obj.setData(userService.createChat(chat, id, other_id));
+        return obj;
+    }
 }

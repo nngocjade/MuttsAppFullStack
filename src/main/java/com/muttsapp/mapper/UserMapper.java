@@ -11,7 +11,7 @@ public interface UserMapper {
 
     String SELECT_ALL_USERS = "select * from `muttsappdb`.user";
 
-    String SELECT_USER_ID_BY_EMAIL = "select user_id from `muttsappdb`.user where email = #{email}";
+    String SELECT_USER_ID_BY_EMAIL = "select user_id from `muttsappdb`.user where user_name = #{user_name}";
 
     String SELECT_USER_BY_ID = "select * from `muttsappdb`.user where user_id = #{user_id}";
 
@@ -19,7 +19,7 @@ public interface UserMapper {
     public ArrayList<User> getAllUsers();
 
     @Select(SELECT_USER_ID_BY_EMAIL)
-    User findUserIDByEmail(String email);
+    User findUserByUserName(String user_name);
 
     @Select(SELECT_USER_BY_ID)
     ArrayList<User> findUserById(int id);

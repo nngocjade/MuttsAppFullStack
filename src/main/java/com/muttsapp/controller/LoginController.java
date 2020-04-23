@@ -5,7 +5,6 @@ import com.muttsapp.model.User;
 import com.muttsapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +24,9 @@ public class LoginController {
     public String getMainPage(Authentication auth, Model model){
 //        UserDetails userDetails = (UserDetails) auth.getPrincipal();
 //        System.out.println("User has authorities: " + userDetails.getAuthorities());
-        User user_id = userService.findUserIdByEmail(auth.getName());
-        model.addAttribute("user_id", user_id);
+        System.out.println(auth.getName());
+        User user = userService.findUserByUserName(auth.getName());
+        model.addAttribute("user_id", user.getUser_id());
         return "admin/muttsApp";
     }
 

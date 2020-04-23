@@ -4,7 +4,6 @@ import com.muttsapp.mapper.ChatMapper;
 import com.muttsapp.mapper.UserMapper;
 import com.muttsapp.model.Message;
 import com.muttsapp.model.User;
-import com.muttsapp.model.UserChats;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +22,9 @@ public class UserService {
         return userMapper.getAllUsers();
     }
 
-    public User findUserIdByEmail(String email) {
+    public User findUserByUserName(String user_name) {
 
-        return userMapper.findUserIDByEmail(email);
+        return userMapper.findUserByUserName(user_name);
     }
 
     public ArrayList<User> getUserById(int user_id) {
