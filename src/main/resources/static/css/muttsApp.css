@@ -166,7 +166,7 @@ header {
   border-radius: 50%;
   box-shadow: 2px 2px 2px rgb(206, 205, 205);
   padding: 4px;
-  background-image: url("./css/images/icons8-pokeball-50-50percent.png");
+  background-image: url("/images/icons8-pokeball-50-50percent.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 145%;
@@ -359,7 +359,7 @@ input[name="search"] {
 
 .main-chat:after {
   content: " ";
-  background-image: url("./images/pokeball-clipart-black-and-white-186526-9437009.svg");
+  background-image: url("/images/pokeball-clipart-black-and-white-186526-9437009.svg");
   background-size: 25px;
   position: absolute;
   opacity: 0.4;
@@ -378,15 +378,6 @@ input[name="search"] {
   align-items: flex-start;
   padding: 0 20px;
   overflow-y: auto; /* === this allows to scroll ===*/
-}
-.chat-container-background {
-  background-image: url("./images/pokeball-clipart-black-and-white-186526-9437009.svg");
-  opacity: 0.04;
-  position: absolute;
-  z-index: -1;
-  overflow: hidden;
-  width: 60%;
-  background-size: 25px;
 }
 
 .chat-bubble {
