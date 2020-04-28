@@ -152,6 +152,50 @@ function getUserChats() {
 
 getUserChats();
 
+//---------------------GET MODAL ELEMENT------------------------
+
+//---get modal element
+let modal = document.getElementById("popup-modal-window");
+
+//---get open modal button
+let modalButton = document.getElementById("modal-button");
+
+//---get close button
+let closeButton = document.getElementsByClassName("close-button")[0];
+
+//---listen for OPEN click
+modalButton.addEventListener("click", openModal);
+
+//---listen for CLOSE click
+closeButton.addEventListener("click", closeModal);
+
+//---Listen for OUTSIDE click
+window.addEventListener("click", outsideClick);
+
+//---Function to open modal
+function openModal() {
+  modal.style.display = "block";
+  document.getElementById('header-main').style.opacity = 0.2
+  document.querySelector('.main-content').style.opacity = 0.2
+
+}
+
+//---Function to close modal
+function closeModal() {
+  modal.style.display = "none";
+  document.getElementById('header-main').style.opacity = 1
+  document.querySelector('.main-content').style.opacity = 1
+}
+
+//Function to close modal if outside click
+function outsideClick(event) {
+  if (event.target == modal){
+    modal.style.display = "none";
+    document.getElementById('header-main').style.opacity = 1
+    document.querySelector('.main-content').style.opacity = 1
+  }
+}
+
 //--------------------   SEND MESSAGE TO API   --------------------//
 
 function sendMessageToAPI(msgObj) {

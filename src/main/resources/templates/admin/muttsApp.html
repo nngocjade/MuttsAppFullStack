@@ -29,14 +29,121 @@
             </button>
           </li>
           <li>
-
-            <button class="svg-wrap">
+<!--            -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;START NEW CHAT ICON-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+            <button id="modal-button" class="modal-button svg-wrap">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path
-              d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3-4H7.041V7.1h9.975v1.944z">
-            </path>
-            </svg>
-          </button>
+                <path
+                        d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3-4H7.041V7.1h9.975v1.944z">
+                </path>
+              </svg>
+            </button>
+<!--            -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;ON CLICK MODAL SLIDING WINDOW &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+            <div id="popup-modal-window" class="modal-window">
+              <div class="modal-body">
+                <div class="modal-header">
+                  <button>
+                    <i class="close-button fa fa-angle-left"></i>
+                  </button>
+                  <h2>Select contact</h2>
+
+                  <div id="modal-header-icon">
+                    <ul>
+<!--                      add user icon-->
+                      <li>
+                        <button>
+                          <i class="close-button 	fa fa-user-plus"></i>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="modal-content">
+<!--                   search contact form -->
+
+                  <div class="search form-wrap">
+                    <form id="search-contact-form">
+                      <i class="static-search-icon 	fa fa-search"></i>
+                      <input type="text" name="search" id="search-contact-input" placeholder="Search..."/>
+                    </form>
+                  </div>
+
+<!--                   contacts -->
+                  <div class="contact-preview-wrap">
+                    <div class="contact-preview-box">
+                      <div class="img-wrap">
+                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                        <p id="contact-name" class="contact-name">Pikachu</p>
+                        <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                    </div>
+                    <div class="contact-preview-box">
+                      <div class="img-wrap">
+                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                        <p id="contact-name" class="contact-name">Pikachu</p>
+                        <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                    </div>
+                    <div class="contact-preview-box">
+                      <div class="img-wrap">
+                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                        <p id="contact-name" class="contact-name">Pikachu</p>
+                        <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                    </div>
+                    <div class="contact-preview-box">
+                      <div class="img-wrap">
+                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                        <p id="contact-name" class="contact-name">Pikachu</p>
+                        <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                    </div>
+                    <div class="contact-preview-box">
+                      <div class="img-wrap">
+                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                        <p id="contact-name" class="contact-name">Pikachu</p>
+                        <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                    </div>
+                    <div class="contact-preview-box">
+                      <div class="img-wrap">
+                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                        <p id="contact-name" class="contact-name">Pikachu</p>
+                        <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                    </div>
+                    <div class="contact-preview-box">
+                      <div class="img-wrap">
+                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                        <p id="contact-name" class="contact-name">Pikachu</p>
+                        <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+<!--            &#45;&#45; End of on click modal popup window -&#45;&#45;-->
+
+<!--            &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;end of start new chat button -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
         </li>
           <li>
             <button class="svg-wrap">

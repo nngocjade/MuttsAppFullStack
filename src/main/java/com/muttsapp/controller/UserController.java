@@ -59,7 +59,7 @@ public class UserController {
     }
 
 //    -------------------------POST REQUEST-----------------------------
-
+//
 //    @PostMapping("/{id}/chats/{other_id}")
 //    public CustomResponseObject<UserChats>  createNewChat(
 //            @PathVariable(value="id")int id,
