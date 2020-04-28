@@ -7,8 +7,9 @@ let baseUrl ="http://localhost:8080"
 function createChatBubble(msgObj) {
   console.log(msgObj);
   let ChatBubble = document.createElement("div");
-
-  if (msgObj.sender_id === userId) {
+  console.log(msgObj.sender_id)
+  console.log(user_id)
+  if (msgObj.sender_id === +userId) {
     ChatBubble.classList.add("chat-bubble", "out");
   } else {
     ChatBubble.classList.add("chat-bubble", "in");
@@ -28,22 +29,6 @@ function createChatBubbles(dataObj) {
   let chatsArr = dataObj.data;
   chatsArr.forEach((chatObj) => createChatBubble(chatObj));
 }
-
-//--------------------   GET USER CHATS    --------------------//
-
-function getUserChats() {
-  document.getElementById("message-preview-wrapper").innerHTML = ""; //clears previous message before fetching for new one(s)
-
-  fetch(`${baseUrl}/users/${userId}/chats/`)
-    .then((Response) => Response.json())
-    .then((dataObj) => createPreviewBoxes(dataObj));
-
-  // .then(function(dataObj){
-  //   createPreviewBoxes(dataObj);
-  // })
-}
-
-getUserChats();
 
 //--------------------   CREATE MESSAGE PREVIEW BOX   --------------------//
 
@@ -151,6 +136,22 @@ newMessageForm.addEventListener("submit", function (event) {
   document.getElementById("new-message").value = " ";
 });
 
+//--------------------   GET USER CHATS    --------------------//
+
+function getUserChats() {
+  document.getElementById("message-preview-wrapper").innerHTML = ""; //clears previous message before fetching for new one(s)
+
+  fetch(`${baseUrl}/users/${userId}/chats/`)
+    .then((Response) => Response.json())
+    .then((dataObj) => createPreviewBoxes(dataObj));
+
+  // .then(function(dataObj){
+  //   createPreviewBoxes(dataObj);
+  // })
+}
+
+getUserChats();
+
 //--------------------   SEND MESSAGE TO API   --------------------//
 
 function sendMessageToAPI(msgObj) {
@@ -174,6 +175,7 @@ function newUser() {
     last_name: "",
     username: "",
     photo_url: "",
+    date_sent: "",
   };
   let postParams = {
     method: "POST", // *GET, POST, PUT, DELETE, etc.

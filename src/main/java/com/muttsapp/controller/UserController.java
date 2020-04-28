@@ -60,13 +60,13 @@ public class UserController {
 
 //    -------------------------POST REQUEST-----------------------------
 
-    @PostMapping("/{id}/chats/{other_id}")
-    public CustomResponseObject<UserChats>  createNewChat(
-            @PathVariable(value="id")int id,
-            @PathVariable(value="other_id")int other_id,
-            @RequestBody UserChats userChats){
-        CustomResponseObject<UserChats> obj = new ResponseObject();
-        obj.setData(userService.createChat(chat, id, other_id));
-        return obj;
-    }
+//    @PostMapping("/{id}/chats/{other_id}")
+//    public CustomResponseObject<UserChats>  createNewChat(
+//            @PathVariable(value="id")int id,
+//            @PathVariable(value="other_id")int other_id,
+//            @RequestBody UserChats userChats){
+//        CustomResponseObject<UserChats> obj = new CustomResponseObject<>();
+//        obj.setData(userService.createNewUserChat(chat, id, other_id));
+//        return obj;
+//    }
 }
