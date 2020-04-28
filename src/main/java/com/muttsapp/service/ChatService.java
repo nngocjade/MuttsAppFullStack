@@ -1,11 +1,13 @@
 package com.muttsapp.service;
 
 import com.muttsapp.mapper.ChatMapper;
-import com.muttsapp.model.UserChats;
+import com.muttsapp.model.Message;
+import com.muttsapp.model.UserChat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ChatService {
@@ -13,13 +15,21 @@ public class ChatService {
     @Autowired
     ChatMapper chatMapper;
 
-    public ArrayList<UserChats> getAllUserChats(int id) {
-        ArrayList<UserChats> chats = chatMapper.findAllUserChatsById(id);
+    public ArrayList<UserChat> getAllUserChats(int id) {
+        ArrayList<UserChat> chats = chatMapper.findAllUserChatsById(id);
 
-        for (UserChats c : chats){
+        for (UserChat c : chats){
             c.setPhoto_url(chatMapper.findPhotoURL(c.getSender_id()));
             c.setLast_message(chatMapper.getLastMessage(c.getChat_id()));
         }
         return chats;
+    }
+
+    public void saveMessage(Message message) {
+        chatMapper.insertMessage(message);
+    }
+
+    public List<UserChat> getUserChatById(int id) {
+        return chatMapper.findAllUserChatsById(id);
     }
 }

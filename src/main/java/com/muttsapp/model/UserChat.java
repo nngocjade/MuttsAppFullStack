@@ -3,7 +3,7 @@ package com.muttsapp.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UserChats {
+public class UserChat {
     String chat_name;
     int chat_id;
     String last_message;

@@ -2,11 +2,13 @@ package com.muttsapp.mapper;
 
 
 import com.muttsapp.model.Message;
-import com.muttsapp.model.UserChats;
+import com.muttsapp.model.UserChat;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Mapper
 public interface ChatMapper {
@@ -45,8 +47,11 @@ public interface ChatMapper {
             "where m.chat_id = #{chat_id} " +
             "order by m.date_sent asc;";
 
+    String INSERT_MESSAGE = "INSERT INTO `muttsappdb`.`messages` (`message`, `chat_id`, `user_id`) VALUES (#{message}, " +
+            "#{chat_id}, #{user_id})";
+
     @Select(FIND_USER_CHATS_BY_ID)
-    public ArrayList<UserChats> findAllUserChatsById(int id);
+    public ArrayList<UserChat> findAllUserChatsById(int id);
 
     @Select(FIND_PHOTO_URL)
     String findPhotoURL(int sender_id);
@@ -59,4 +64,7 @@ public interface ChatMapper {
 
     @Select(FIND_MESSAGE_BY_CHAT_ID)
     ArrayList<Message> findMessagesByChatId(int chat_id);
+
+    @Insert(INSERT_MESSAGE)
+    void insertMessage(Message message);
 }
