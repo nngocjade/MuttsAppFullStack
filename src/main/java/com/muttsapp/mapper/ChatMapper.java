@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Mapper
 public interface ChatMapper {
 
-    String FIND_USER_CHATS_BY_ID = "select distinct(c.chat_title) as chat_name, c.id as chat_id, " +
+    String FIND_USER_CHATS_BY_ID = "select distinct(c.chat_title) as chat_name, c.id as chat_id, m.date_sent, " +
             "m.user_id as sender_id " +
             "from chats c " +
             "join messages m " +
@@ -20,7 +20,7 @@ public interface ChatMapper {
             "on uc.chat_id = c.id " +
             "where uc.user_id = #{id} " +
             "and m.user_id != #{id} " +
-            "group by chat_id, sender_id " +
+            "group by chat_id, sender_id, m.date_sent " +
             "order by m.date_sent asc";
 
     String FIND_PHOTO_URL = "Select photo_url from user " +
