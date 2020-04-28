@@ -58,6 +58,9 @@ public class UserController {
         return obj;
     }
 
+//    --------------------------POST
+
+
 //    -------------------------POST REQUEST-----------------------------
 //
 //    @PostMapping("/{id}/chats/{other_id}")

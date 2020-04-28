@@ -9,7 +9,8 @@ function createChatBubble(msgObj) {
   let ChatBubble = document.createElement("div");
   console.log(msgObj.sender_id)
   console.log(user_id)
-  if (msgObj.sender_id === +userId) {
+//  by adding the + symbol we make sure the values we are comparing are numbers and not strings
+  if (+msgObj.sender_id === +userId) {
     ChatBubble.classList.add("chat-bubble", "out");
   } else {
     ChatBubble.classList.add("chat-bubble", "in");
