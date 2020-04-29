@@ -219,6 +219,7 @@ button:hover > svg > path {
   color: rgb(112, 112, 112);
   text-decoration: none;
   cursor: pointer;
+
 }
 
 @keyframes modalopen{
