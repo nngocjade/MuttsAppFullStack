@@ -6,11 +6,116 @@
     <title>PokeChat</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/muttsApp.css}" />
-<!--    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" type="text/css" rel="stylesheet" />-->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display;=swap" type="text/css" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
   </head>
 
   <body>
   <input type="hidden" th:value="${user_id}" id="user_id" />
+  <!--            ON CLICK MODAL SLIDING WINDOW-->
+  <div id="popup-modal-window" class="modal-window">
+      <div class="modal-body">
+          <div class="modal-header">
+              <button>
+                  <i class="close-button fa fa-angle-left"></i>
+              </button>
+              <h2>Select contact</h2>
+
+              <div id="modal-header-icon">
+                  <ul>
+                      <!--                      add user icon-->
+                      <li>
+                          <button>
+                              <i class="close-button 	fa fa-user-plus"></i>
+                          </button>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="modal-content">
+              <!--                   search contact form -->
+
+              <div class="search form-wrap">
+                  <form id="search-contact-form">
+                      <i class="static-search-icon 	fa fa-search"></i>
+                      <input type="text" name="search" id="search-contact-input" placeholder="Search..."/>
+                  </form>
+              </div>
+
+              <!--                   contacts -->
+              <div class="contact-preview-wrap">
+                  <div class="contact-preview-box">
+                      <div class="img-wrap">
+                          <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                          <p id="contact-name" class="contact-name">Pikachu</p>
+                          <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                  </div>
+                  <div class="contact-preview-box">
+                      <div class="img-wrap">
+                          <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                          <p id="contact-name" class="contact-name">Pikachu</p>
+                          <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                  </div>
+                  <div class="contact-preview-box">
+                      <div class="img-wrap">
+                          <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                          <p id="contact-name" class="contact-name">Pikachu</p>
+                          <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                  </div>
+                  <div class="contact-preview-box">
+                      <div class="img-wrap">
+                          <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                          <p id="contact-name" class="contact-name">Pikachu</p>
+                          <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                  </div>
+                  <div class="contact-preview-box">
+                      <div class="img-wrap">
+                          <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                          <p id="contact-name" class="contact-name">Pikachu</p>
+                          <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                  </div>
+                  <div class="contact-preview-box">
+                      <div class="img-wrap">
+                          <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                          <p id="contact-name" class="contact-name">Pikachu</p>
+                          <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                  </div>
+                  <div class="contact-preview-box">
+                      <div class="img-wrap">
+                          <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
+                      </div>
+                      <div class="contact-text-wrap">
+                          <p id="contact-name" class="contact-name">Pikachu</p>
+                          <p id="contact-last-message">pika pika chu!!!</p>
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+  </div>
+  <!--End of on click modal popup window -->
     <header>
       <div id="header-sidebar">
         <div id="self-image" class="img-wrap">
@@ -29,7 +134,7 @@
             </button>
           </li>
           <li>
-<!--            -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;START NEW CHAT ICON-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--            START NEW CHAT ICON -->
             <button id="modal-button" class="modal-button svg-wrap">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path
@@ -37,113 +142,7 @@
                 </path>
               </svg>
             </button>
-<!--            -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;ON CLICK MODAL SLIDING WINDOW &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-            <div id="popup-modal-window" class="modal-window">
-              <div class="modal-body">
-                <div class="modal-header">
-                  <button>
-                    <i class="close-button fa fa-angle-left"></i>
-                  </button>
-                  <h2>Select contact</h2>
-
-                  <div id="modal-header-icon">
-                    <ul>
-<!--                      add user icon-->
-                      <li>
-                        <button>
-                          <i class="close-button 	fa fa-user-plus"></i>
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="modal-content">
-<!--                   search contact form -->
-
-                  <div class="search form-wrap">
-                    <form id="search-contact-form">
-                      <i class="static-search-icon 	fa fa-search"></i>
-                      <input type="text" name="search" id="search-contact-input" placeholder="Search..."/>
-                    </form>
-                  </div>
-
-<!--                   contacts -->
-                  <div class="contact-preview-wrap">
-                    <div class="contact-preview-box">
-                      <div class="img-wrap">
-                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
-                      </div>
-                      <div class="contact-text-wrap">
-                        <p id="contact-name" class="contact-name">Pikachu</p>
-                        <p id="contact-last-message">pika pika chu!!!</p>
-                      </div>
-                    </div>
-                    <div class="contact-preview-box">
-                      <div class="img-wrap">
-                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
-                      </div>
-                      <div class="contact-text-wrap">
-                        <p id="contact-name" class="contact-name">Pikachu</p>
-                        <p id="contact-last-message">pika pika chu!!!</p>
-                      </div>
-                    </div>
-                    <div class="contact-preview-box">
-                      <div class="img-wrap">
-                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
-                      </div>
-                      <div class="contact-text-wrap">
-                        <p id="contact-name" class="contact-name">Pikachu</p>
-                        <p id="contact-last-message">pika pika chu!!!</p>
-                      </div>
-                    </div>
-                    <div class="contact-preview-box">
-                      <div class="img-wrap">
-                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
-                      </div>
-                      <div class="contact-text-wrap">
-                        <p id="contact-name" class="contact-name">Pikachu</p>
-                        <p id="contact-last-message">pika pika chu!!!</p>
-                      </div>
-                    </div>
-                    <div class="contact-preview-box">
-                      <div class="img-wrap">
-                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
-                      </div>
-                      <div class="contact-text-wrap">
-                        <p id="contact-name" class="contact-name">Pikachu</p>
-                        <p id="contact-last-message">pika pika chu!!!</p>
-                      </div>
-                    </div>
-                    <div class="contact-preview-box">
-                      <div class="img-wrap">
-                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
-                      </div>
-                      <div class="contact-text-wrap">
-                        <p id="contact-name" class="contact-name">Pikachu</p>
-                        <p id="contact-last-message">pika pika chu!!!</p>
-                      </div>
-                    </div>
-                    <div class="contact-preview-box">
-                      <div class="img-wrap">
-                        <img src="./images/icons8-pikachu-pokemon-50.png" alt="pikachu" />
-                      </div>
-                      <div class="contact-text-wrap">
-                        <p id="contact-name" class="contact-name">Pikachu</p>
-                        <p id="contact-last-message">pika pika chu!!!</p>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-<!--            &#45;&#45; End of on click modal popup window -&#45;&#45;-->
-
-<!--            &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;end of start new chat button -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--       end of start new chat button -->
         </li>
           <li>
             <button class="svg-wrap">
@@ -218,70 +217,6 @@
             </div>
           </div> -->
 
-          <!-- <div class="message-preview-box">
-            <div class="img-wrap">
-              <img src="./images/icons8-bullbasaur-50.png" alt="kitty kat 2" />
-            </div>
-            <div class="message-text-wrap">
-              <p>Bullbasaur</p>
-              <p>Saurrrrr!!!</p>
-            </div>
-            <div class="date-wrap">
-              <p>03/20/20</p>
-            </div>
-          </div>
-
-          <div class="message-preview-box">
-            <div class="img-wrap">
-              <img src="./images/icons8-charmander-50.png" alt="Charmander" />
-            </div>
-            <div class="message-text-wrap">
-              <p>Charmander</p>
-              <p>Char!!!</p>
-            </div>
-            <div class="date-wrap">
-              <p>03/21/20</p>
-            </div>
-          </div>
-
-          <div class="message-preview-box">
-            <div class="img-wrap">
-              <img src="./images/icons8-eevee-50.png" alt="Eevee" />
-            </div>
-            <div class="message-text-wrap">
-              <p>Eevee</p>
-              <p>Eh-Veh!!!</p>
-            </div>
-            <div class="date-wrap">
-              <p>03/22/20</p>
-            </div>
-          </div>
-
-          <div class="message-preview-box">
-            <div class="img-wrap">
-              <img src="./images/icons8-jigglypuff-50.png" alt="Jigglypuff" />
-            </div>
-            <div class="message-text-wrap">
-              <p>Jigglypuff</p>
-              <p>jiggly jiggly puffff!!!</p>
-            </div>
-            <div class="date-wrap">
-              <p>03/23/20</p>
-            </div>
-          </div>
-
-          <div class="message-preview-box">
-            <div class="img-wrap">
-              <img src="./images/icons8-dratini-50.png" alt="dratini" />
-            </div>
-            <div class="message-text-wrap">
-              <p>Dratini</p>
-              <p>splashhhhh!!</p>
-            </div>
-            <div class="date-wrap">
-              <p>03/23/20</p>
-            </div>
-          </div> -->
         </div>
       </div>
       <div class="main-chat">
