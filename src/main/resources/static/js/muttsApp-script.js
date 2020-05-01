@@ -137,22 +137,6 @@ newMessageForm.addEventListener("submit", function (event) {
   document.getElementById("new-message").value = " ";
 });
 
-//--------------------   GET USER CHATS    --------------------//
-
-function getUserChats() {
-  document.getElementById("message-preview-wrapper").innerHTML = ""; //clears previous message before fetching for new one(s)
-
-  fetch(`${baseUrl}/users/${userId}/chats/`)
-    .then((Response) => Response.json())
-    .then((dataObj) => createPreviewBoxes(dataObj));
-
-  // .then(function(dataObj){
-  //   createPreviewBoxes(dataObj);
-  // })
-}
-
-getUserChats();
-
 //---------------------GET MODAL ELEMENT------------------------
 
 //---get modal element
@@ -207,10 +191,26 @@ function sendMessageToAPI(msgObj) {
     },
     body: JSON.stringify(msgObj),
   };
-  fetch(`${baseUrl}/users/${userId}/chat`, postParams)
+  fetch(`${baseUrl}/users/${userId}/message`, postParams)
     .then((res) => res.json())
     .then((res) => getUserChats());
 }
+
+//--------------------   GET USER CHATS    --------------------//
+
+function getUserChats() {
+  document.getElementById("message-preview-wrapper").innerHTML = ""; //clears previous message before fetching for new one(s)
+
+  fetch(`${baseUrl}/users/${userId}/chats/`)
+    .then((Response) => Response.json())
+    .then((dataObj) => createPreviewBoxes(dataObj));
+
+  // .then(function(dataObj){
+  //   createPreviewBoxes(dataObj);
+  // })
+}
+
+getUserChats();
 
 //--------------------   NEW USER    --------------------//
 

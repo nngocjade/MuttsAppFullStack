@@ -63,7 +63,7 @@ public class UserController {
 
     @PostMapping("/{id}/message")
     public CustomResponseObject<List<UserChat>> insertNewMessage(
-            @PathVariable("id") int id,
+            @PathVariable(value = "id") int id,
             @RequestBody Message message){
         CustomResponseObject<List<UserChat>> obj = new CustomResponseObject<>();
         chatService.saveMessage(message);
