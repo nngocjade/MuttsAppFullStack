@@ -19,15 +19,17 @@ public class UserService {
     ChatMapper chatMapper;
 
     public ArrayList<User> getAllUsers(){
-        return userMapper.getAllUsers();
+
+        return userMapper.findAllUsers();
     }
 
-    public User findUserByUserName(String user_name) {
+    public User getUserByUserName(String user_name) {
 
         return userMapper.findUserByUserName(user_name);
     }
 
     public ArrayList<User> getUserById(int user_id) {
+
         return userMapper.findUserById(user_id);
     }
 

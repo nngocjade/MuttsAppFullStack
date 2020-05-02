@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//returns the object and object data is directly written into HTTP response as JSON or XML.
 @RestController
 @RequestMapping("/users")
 public class UserController {
