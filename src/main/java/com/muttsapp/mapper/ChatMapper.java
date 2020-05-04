@@ -48,7 +48,7 @@ public interface ChatMapper {
             "order by m.date_sent asc;";
 
     String INSERT_MESSAGE = "INSERT INTO `muttsappdb`.`messages` (`message`, `chat_id`, `user_id`) VALUES (#{message}, " +
-            "#{chat_id}, #{user_id})";
+            "#{chat_id}, #{sender_id})";
 
     @Select(FIND_USER_CHATS_BY_ID)
     public ArrayList<UserChat> findAllUserChatsById(int id);
