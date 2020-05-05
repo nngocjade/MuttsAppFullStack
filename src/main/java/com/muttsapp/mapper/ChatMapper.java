@@ -23,7 +23,7 @@ public interface ChatMapper {
             "where uc.user_id = #{id} " +
             "and m.user_id != #{id} " +
             "group by chat_id, sender_id, m.date_sent " +
-            "order by m.date_sent asc";
+            "order by m.date_sent desc";
 
     String FIND_PHOTO_URL = "Select photo_url from user " +
             "where user_id = #{user_id} ";
@@ -57,7 +57,7 @@ public interface ChatMapper {
     String findPhotoURL(int sender_id);
 
     @Select(GET_LAST_MESSAGE)
-    String getLastMessage(int chat_id);
+    Message getLastMessage(int chat_id);
 
     @Select(FIND_CHAT_ID_FOR_USERS_ID)
     int findChatIdForUserIds(int id, int chat_id);
@@ -67,4 +67,6 @@ public interface ChatMapper {
 
     @Insert(INSERT_MESSAGE)
     void insertMessage(Message message);
+
+
 }

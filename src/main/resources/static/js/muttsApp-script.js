@@ -77,6 +77,7 @@ function createMessagePreviewBox(chatObj) {
   let dateP = document.createElement("p");
   dateP.setAttribute("data-chat_id", chatObj.chat_id);
   dateP.setAttribute("data-sender_id", chatObj.sender_id);
+  console.log(chatObj.date_sent);
   dateP.innerHTML = new Date(chatObj.date_sent).toLocaleDateString(); //always instantiate a new date
 
   dateWrap.appendChild(dateP);
@@ -109,7 +110,7 @@ function previewBoxClick(event) {
   document.getElementById("send-message").dataset.chat_id = chatID; //getting message form data attribute and setting to chatID
 
   fetch(`${baseUrl}/users/${userId}/chats/${senderID}`)
-    .then((ressponse) => ressponse.json())
+    .then((response) => response.json())
     .then((dataObj) => createChatBubbles(dataObj));
 }
 

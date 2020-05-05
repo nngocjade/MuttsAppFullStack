@@ -19,8 +19,10 @@ public class ChatService {
         ArrayList<UserChat> chats = chatMapper.findAllUserChatsById(id);
 
         for (UserChat c : chats){
+            Message message = chatMapper.getLastMessage(c.getChat_id());
             c.setPhoto_url(chatMapper.findPhotoURL(c.getSender_id()));
-            c.setLast_message(chatMapper.getLastMessage(c.getChat_id()));
+            c.setLast_message(message.getMessage());
+            c.setDate_sent(message.getDate_sent());
         }
         return chats;
     }
@@ -32,4 +34,5 @@ public class ChatService {
     public List<UserChat> getUserChatById(int id) {
         return chatMapper.findAllUserChatsById(id);
     }
+
 }
