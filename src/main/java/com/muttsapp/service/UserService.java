@@ -39,6 +39,14 @@ public class UserService {
         return chatMapper.findMessagesByChatId(chat_id);
     }
 
+    public User findUserByEmail(String email) {
+        return userMapper.findUserByEmail(email);
+    }
+
+    public void saveUser(User user) {
+        userMapper.insertUser(user);
+    }
+
 //    public UserChat createNewUserChat(UserChat userChat, int id, int other_id) {
 //        UserChat newUserChat = chatMapper.createNewUserChat(userChat);
 //    }

@@ -3,7 +3,6 @@ package com.muttsapp.controller;
 
 import com.muttsapp.exception.CustomException;
 import com.muttsapp.model.User;
-import com.muttsapp.service.UserLoginService;
 import com.muttsapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -23,9 +22,6 @@ public class LoginController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    UserLoginService userLoginService;
-
     @RequestMapping(value="/")
     public String home(){
         return "redirect:/index";
@@ -40,6 +36,14 @@ public class LoginController {
         model.addAttribute("user_id", user.getUser_id());
         return "admin/muttsApp";
     }
+
+//    @RequestMapping(value="/admin/index", method = RequestMethod.GET)
+//    public String index(Authentication auth, Model model){
+//        //model.addAttribute("user_id", name);
+//        int user_id = userService.findUserByEmail(auth.getName()).getUser_id();
+//        model.addAttribute("user_id", user_id);
+//        return "admin/index";
+//    }
 
     @RequestMapping(value="/login")
     public String login(){
@@ -67,7 +71,7 @@ public class LoginController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
-        User userExists = userLoginService.findUserByEmail(user.getEmail());
+        User userExists = userService.findUserByEmail(user.getEmail());
         if (userExists != null) {
             bindingResult
                     .rejectValue("email", "error.user",
@@ -76,19 +80,12 @@ public class LoginController {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
         } else {
-            userLoginService.saveUser(user);
+            userService.saveUser(user);
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
         }
         return modelAndView;
-    }
-    @RequestMapping(value="/admin/index", method = RequestMethod.GET)
-    public String index(Authentication auth, Model model){
-        //model.addAttribute("user_id", name);
-        int user_id = userLoginService.findUserByEmail(auth.getName()).getUser_id();
-        model.addAttribute("user_id", user_id);
-        return "admin/index";
     }
 
 }

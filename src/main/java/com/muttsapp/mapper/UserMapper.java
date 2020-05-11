@@ -18,7 +18,7 @@ public interface UserMapper {
 
     String SELECT_USER_BY_ID = "select * from `muttsappdb`.user where user_id = #{user_id}";
 
-    String SELECT_USER_BY_EMAIL = "select email from `muttsappdb`.user where email = #{email}";
+    String SELECT_USER_BY_EMAIL = "select * from `muttsappdb`.user where email = #{email}";
 
     String INSERT_USER = "INSERT INTO `muttsappdb`.`user` (`password`, `user_name`, `email`, `first_name`, `last_name`) " +
             "VALUES (#{password}, #{user_name}, #{email}, #{first_name}, #{last_name})";
