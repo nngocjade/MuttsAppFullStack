@@ -6,7 +6,7 @@
 	<title>Welcome Security with Spring Boot!</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<script
@@ -15,6 +15,7 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="container" style="margin:50px">
+
 	<div class="row col-sm-6" 
 				style="border: 1px ridge #003312; padding:20px; float: none; margin: 0 auto;">
 		<h5 class="text-center" style="font-size: 25px">Sign In</h5>
@@ -36,6 +37,9 @@
 				<input type="password" class="form-control" id="password" placeholder="Enter Password" name="password"/>
 			</div>
 			<button type="submit" class="btn btn-primary btn-block">Submit</button>
+		</form>
+		<form th:action="@{/templates/registration}" method="get">
+			<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page</button>
 		</form>
 	</div>
 </body>

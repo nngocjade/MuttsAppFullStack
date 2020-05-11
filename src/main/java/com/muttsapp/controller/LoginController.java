@@ -49,14 +49,14 @@ public class LoginController {
         throw new CustomException(" ** Cuttlefish ** ");
     }
 
-//    @RequestMapping(value="/registration", method = RequestMethod.GET)
-//    public ModelAndView registration(){
-//        ModelAndView modelAndView = new ModelAndView();
-//        User user = new User();
-//        modelAndView.addObject("user", user);
-//        modelAndView.setViewName("registration");
-//        return modelAndView;
-//    }
+    @RequestMapping(value="/registration", method = RequestMethod.GET)
+    public ModelAndView registration(){
+        ModelAndView modelAndView = new ModelAndView();
+        User user = new User();
+        modelAndView.addObject("user", user);
+        modelAndView.setViewName("registration");
+        return modelAndView;
+    }
 //    @RequestMapping(value = "/registration", method = RequestMethod.POST)
 //    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 //        ModelAndView modelAndView = new ModelAndView();
