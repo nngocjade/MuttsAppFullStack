@@ -28,6 +28,7 @@ public class ChatService {
     }
 
     public void saveMessage(Message message) {
+
         chatMapper.insertMessage(message);
     }
 
