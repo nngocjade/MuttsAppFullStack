@@ -14,15 +14,18 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body class="container" style="margin:50px">
-
-	<div class="row col-sm-6" 
-				style="border: 1px ridge #003312; padding:20px; float: none; margin: 0 auto;">
+<body>
+<form th:action="@{/registration}" method="get">
+	<button class="btn btn-md btn-warning btn-block" type="submit">Go To Registration Page</button>
+</form>
+<div class="container" style="margin:50px">
+	<div class="row col-sm-6"
+		 style="border: 1px ridge #003312; padding:20px; float: none; margin: 0 auto;">
 		<h5 class="text-center" style="font-size: 25px">Sign In</h5>
 		<div th:if="${param.error}">
 			<p style="color: red">UserName or PassWord is wrong. Please
 				check again!</p>
-	
+
 		</div>
 		<div th:if="${param.logout}">
 			<h1 style="color: blue">Logged out.</h1>
@@ -38,9 +41,8 @@
 			</div>
 			<button type="submit" class="btn btn-primary btn-block">Submit</button>
 		</form>
-		<form th:action="@{/templates/registration}" method="get">
-			<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page</button>
-		</form>
 	</div>
+</div>
+
 </body>
 </html>

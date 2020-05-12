@@ -50,6 +50,11 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping(value="/logout")
+    public String logout(){
+        return "login";
+    }
+
     @RequestMapping(value="/403")
     public String Error403(){
         return "403";
