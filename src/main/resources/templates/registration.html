@@ -4,6 +4,7 @@
 <head>
     <title>Registration Form</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display;=swap" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -62,13 +63,13 @@
                         <button type="submit" class="btn btn-primary btn-block">Sign up</button>
                     </div>
                 </div>
-                <form class="form-group" th:action="@{/}" method="get">
-                    <div class="back-button col-sm-9">
-                    <button class="btn btn-md btn-warning btn-block" type="Submit">Back to Login Page</button>
-                    </div>
-                </form>
-                <span th:utext="${successMessage}"></span>
             </form>
+            <form class="form-group" th:action="@{/}" method="get">
+                <div class="back-button col-sm-9">
+                    <button class="btn btn-md btn-warning btn-block" type="Submit">Back to Login Page</button>
+                </div>
+            </form>
+            <span th:utext="${successMessage}"></span>
         </div>
     </div>
 </div>

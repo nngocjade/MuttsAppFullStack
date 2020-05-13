@@ -7,6 +7,7 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display;=swap" type="text/css" rel="stylesheet"/>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<script
@@ -14,10 +15,16 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="font-family-override">
 <div class="container" style="margin:50px">
 	<div class="row col-sm-6"
-		 style="border: 1px ridge #003312; padding:20px; float: none; margin: 0 auto;">
+		 style=" border: none;
+          padding: 20px;
+          float: none;
+          margin: 0 auto;
+		  background-color: #fafafa;
+		border-radius: 1em;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);">
 		<h5 class="text-center" style="font-size: 25px">Login</h5>
 		<div th:if="${param.error}">
 			<p style="color: red">UserName or PassWord is wrong. Please
@@ -35,14 +42,11 @@
 				<label for="password">Password: </label>
 				<input type="password" class="form-control" id="password" placeholder="Enter Password" name="password"/>
 			</div>
-			<div>
 				<button type="submit" class="btn btn-primary btn-block">Sign in</button>
-				<form th:action="@{/registration}" method="get">
-					<button class="btn btn-md btn-warning btn-block" type="submit">Sign Up</button>
-				</form>
-			</div>
 		</form>
-
+		<form th:action="@{/registration}" method="get">
+			<button class="sign-up btn btn-md btn-warning btn-block" type="submit">Sign Up</button>
+		</form>
 	</div>
 </div>
 
