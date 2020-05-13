@@ -33,6 +33,16 @@ input[type="password"] {
   border-top-right-radius: 0;
 }
 
+.sign-in.btn.btn-primary.btn-block{
+background-color: #ffa8a8 !important;
+border-color: #fafafa !important;
+}
+
 .sign-up.btn.btn-md.btn-warning.btn-block{
    margin-top: 10px;
+   background-color: #7fcc74 !important;
+   border-color: #fafafa!important;
 }
+
+
+
