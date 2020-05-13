@@ -9,9 +9,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form th:action="@{/}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
-</form>
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -62,9 +59,14 @@
                 <input type="hidden" name="photo_url" value="/images/icons8-pikachu-pokemon-50.png" />
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary btn-block">Register User</button>
+                        <button type="submit" class="btn btn-primary btn-block">Sign up</button>
                     </div>
                 </div>
+                <form class="form-group" th:action="@{/}" method="get">
+                    <div class="back-button col-sm-9">
+                    <button class="btn btn-md btn-warning btn-block" type="Submit">Back to Login Page</button>
+                    </div>
+                </form>
                 <span th:utext="${successMessage}"></span>
             </form>
         </div>
