@@ -270,53 +270,31 @@ function newUser() {
     .then((res) => res.json())
     .then((res) => console.log(res));
 }
-
-//******* SAVED FOR LATER!! *******
-// let chats = [
-//   {
-//     sender_id: "1",
-//     photo_url: "./images/icons8-bullbasaur-50.png",
-//     last_message: "hi",
-//     chat_name: "Bullbasaur",
-//     date_sent: "3/19/20"
-//   },
-//   {
-//     sender_id: "2",
-//     photo_url: "./images/icons8-pikachu-pokemon-50.png",
-//     last_message: "hello",
-//     chat_name: "pikachu",
-//     date_sent: "3/19/20"
-//   },
-//   {
-//     sender_id: "3",
-//     photo_url: "./images/icons8-charmander-50.png",
-//     last_message: "How it's going?",
-//     chat_name: "Charmander",
-//     date_sent: "3/20/20"
-//   },
-//   {
-//     sender_id: "4",
-//     photo_url: "./images/icons8-eevee-50.png",
-//     last_message: "Hey girl!",
-//     chat_name: "Eevee",
-//     date_sent: "3/21/20"
-//   },
-//   {
-//     sender_id: "5",
-//     photo_url: "./images/icons8-jigglypuff-50.png",
-//     last_message: "Wanna hangout?",
-//     chat_name: "Jiggly Puff",
-//     date_sent: "3/22/20"
-//   },
-//   {
-//     sender_id: "6",
-//     photo_url: "./images/icons8-dratini-50.png",
-//     last_message: "See ya later!",
-//     chat_name: "Dratini",
-//     date_sent: "3/23/20"
-//   }
-// ];
-
 // chats.forEach(chat => {
 //   createMessagePreviewBox(chat);
 // });
+
+window.addEventListener("DOMContentLoaded", () => {
+  02;
+  const button = document.querySelector("#emoji-button");
+  03;
+  const picker = new EmojiButton();
+  04;
+
+  05;
+  picker.on("emoji", (emoji) => {
+    06;
+    document.querySelector("#new-message").value += emoji;
+    07;
+  });
+  08;
+
+  09;
+  button.addEventListener("click", () => {
+    10;
+    picker.pickerVisible ? picker.hidePicker() : picker.showPicker(button);
+    11;
+  });
+  12;
+});
+
