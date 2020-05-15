@@ -490,6 +490,7 @@ button.svg-wrap {
 .form-wrap form {
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
 input[name="message"] {
