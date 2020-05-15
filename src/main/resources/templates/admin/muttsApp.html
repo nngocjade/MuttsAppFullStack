@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/muttsApp.css}" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display;=swap" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.emojipicker.css}"/>
     <script type="text/javascript" th:src="@{/js/jquery.emojipicker.js}"></script>
@@ -16,23 +16,23 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/jquery.emojipicker.g.css}"/>
     <script type="text/javascript" th:src="@{js/jquery.emojis.js}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js}"></script>
 
-      <script>
-    $(document).ready(function (e) {
+    <script th:inline="javascript">
+      $(document).ready(function (e) {
       $("#new-message").emojiPicker({
-        height: "300px",
-        width: "450px",
-        button: false,
-        position: top
+      height: "300px",
+      width: "450px",
+      button: false,
+      position: top
       });
 
       $("#emoji-button").click(function (event) {
-        event.preventDefault();
-        $("#new-message").emojiPicker("toggle");
+      event.preventDefault();
+      $("#new-message").emojiPicker("toggle");
       });
     });
-  </script>
+    </script>
   </head>
 
   <body>
