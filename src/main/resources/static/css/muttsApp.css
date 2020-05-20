@@ -282,6 +282,41 @@ button:hover > svg > path {
 
 
 /* ========================================================
+              EMOJI PLUGGIN OVERRIDE STYLES
+==========================================================*/
+
+.emoji-picker {
+  top: -60px !important;
+  left: -45px !important;
+  height: 20em !important;
+  padding-bottom: 0.45em !important;
+  border: 1px solid rgb(224, 224, 224) !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.emoji-picker__content {
+  height: 14em !important;
+}
+.emoji-picker__emojis {
+  height: 13.5em !important;
+  overflow-y: scroll !important;
+}
+.emoji-picker__preview {
+  display: none !important;
+}
+li.emoji-picker__tab > svg > path {
+  fill: gray !important;
+}
+
+li.emoji-picker__tab:hover > svg > path {
+  fill: rgb(63, 63, 63) !important;
+}
+
+.emoji-picker__search {
+  padding-left: 5px !important;
+  outline: none !important;
+}
+
+/* ========================================================
               MODAL SLIDING WINDOW
 ==========================================================*/
 
