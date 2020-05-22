@@ -173,7 +173,6 @@ newMessageForm.addEventListener("submit", function (event) {
 
   document.getElementById("new-message").value = " ";
 });
-
 //---------------------GET MODAL ELEMENT------------------------
 
 //---get modal element
@@ -181,12 +180,31 @@ let modal = document.getElementById("popup-modal-window");
 
 //---get open modal button
 let modalButton = document.getElementById("modal-button");
+//--open icon profile modal button
+let iconProfileModalButton = document.getElementById(
+  "icon-profile-modal-button"
+);
+//---open new group modal button
+let newGroupModalButton = document.getElementById("newgroup-modal-button");
+// ---open profile modal button
+let profileModalButton = document.getElementById("profile-modal-button");
+// ---open setting modal button
+let settingModalButton = document.getElementById("setting-modal-button");
 
 //---get close button
 let closeButton = document.getElementsByClassName("close-button")[0];
 
 //---listen for OPEN click
 modalButton.addEventListener("click", openModal);
+newGroupModalButton.addEventListener("click", openModal);
+profileModalButton.addEventListener("click", openModal);
+settingModalButton.addEventListener("click", openModal);
+iconProfileModalButton.addEventListener("click", openProfileModal);
+
+function openProfileModal() {
+  // write content settings
+  openModal();
+}
 
 //---listen for CLOSE click
 closeButton.addEventListener("click", closeModal);
@@ -197,25 +215,83 @@ window.addEventListener("click", outsideClick);
 //---Function to open modal
 function openModal() {
   modal.style.display = "block";
-  document.getElementById('header-main').style.opacity = 0.2
-  document.querySelector('.main-content').style.opacity = 0.2
-
+  document.getElementById("header-main").style.opacity = 0.2;
+  document.querySelector(".main-content").style.opacity = 0.2;
 }
 
 //---Function to close modal
 function closeModal() {
   modal.style.display = "none";
-  document.getElementById('header-main').style.opacity = 1
-  document.querySelector('.main-content').style.opacity = 1
+  document.getElementById("header-main").style.opacity = 1;
+  document.querySelector(".main-content").style.opacity = 1;
 }
 
 //Function to close modal if outside click
 function outsideClick(event) {
-  if (event.target == modal){
+  if (event.target == modal) {
     modal.style.display = "none";
-    document.getElementById('header-main').style.opacity = 1
-    document.querySelector('.main-content').style.opacity = 1
+    document.getElementById("header-main").style.opacity = 1;
+    document.querySelector(".main-content").style.opacity = 1;
   }
+}
+
+// ------------------ON CLICK DROP DOWN MENU (SIDE BAR)------------------
+
+let dropDownButton = document.getElementById("dropdown-button");
+
+let dropdownContent = document.getElementById("dropdown-content-id");
+
+// ------click to open menu
+dropDownButton.addEventListener("click", openDropdown);
+
+//--------function to open menu
+function openDropdown(event) {
+  let el = document.getElementById("dropdown-content-id");
+  console.log(el.classList);
+  document.getElementById("dropdown-content-id").classList.toggle("show");
+  console.log(el.classList);
+}
+
+//---Listen for OUTSIDE click
+//---this works for both sidebar and header main dropdown menu
+window.addEventListener("click", outsideClickButton);
+
+function outsideClickButton(e) {
+  console.log(e.target.closest(".dropdown-button"));
+  if (!e.target.closest(".dropdown-button")) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdownOne = dropdowns[i];
+      if (openDropdownOne.classList.contains("show")) {
+        openDropdownOne.classList.remove("show");
+      }
+    }
+  }
+}
+
+// ------------------ON CLICK DROP DOWN MENU (HEADER MAIN)------------------
+
+let dropDownButton2 = document.getElementById("dropdown-button-main");
+
+// ------click to open menu
+dropDownButton2.addEventListener("click", openDropdown2);
+
+//--------function to open menu
+function openDropdown2(event) {
+  document.getElementById("dropdown-content-main").classList.toggle("show");
+}
+
+// ------------------ON CLICK DROP DOWN MENU (HEADER MAIN)------------------
+
+let dropDownButton2 = document.getElementById("dropdown-button-main");
+
+// ------click to open menu
+dropDownButton2.addEventListener("click", openDropdown2);
+
+//--------function to open menu
+function openDropdown2(event) {
+  document.getElementById("dropdown-content-main").classList.toggle("show");
 }
 
 //--------------------   SEND MESSAGE TO API   --------------------//

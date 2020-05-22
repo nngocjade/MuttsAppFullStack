@@ -9,40 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display;=swap" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-<!--      <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>-->
-
-<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.emojipicker.css}"/>-->
-<!--    <script type="text/javascript" th:src="@{/js/jquery.emojipicker.js}"></script>-->
-
-<!--    <link rel="stylesheet" type="text/css" th:href="@{css/jquery.emojipicker.g.css}"/>-->
-<!--    <script type="text/javascript" th:src="@{js/jquery.emojis.js}"></script>-->
-
-<!--    <script th:src="@{https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js}"></script>-->
-
-<!--    <script>-->
-<!--      $(document).ready(function (e) {-->
-<!--      console.log($("#new-message").emojiPicker);-->
-<!--      $("#new-message").emojiPicker({-->
-<!--&lt;!&ndash;      height: "300px",&ndash;&gt;-->
-<!--&lt;!&ndash;      width: "450px",&ndash;&gt;-->
-<!--&lt;!&ndash;      button: false,&ndash;&gt;-->
-<!--&lt;!&ndash;      position: top&ndash;&gt;-->
-<!--      });-->
-
-<!--      $("#emoji-button").click(function (event) {-->
-<!--      event.preventDefault();-->
-<!--      $("#new-message").emojiPicker("toggle");-->
-<!--      });-->
-<!--    });-->
-<!--    </script>-->
-
-<!--      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>-->
-<!--      <link th:href="@{/css/emoji.css}" rel="stylesheet"/>-->
-
-
 <!--third emoji button-->
       <script src="https://cdn.jsdelivr.net/npm/emoji-button@latest/dist/index.min.js"></script>
-
   </head>
 
   <body>
@@ -50,7 +18,7 @@
     <header>
       <div id="header-sidebar">
         <div id="self-image" class="img-wrap">
-          <img src="/images/icons8-meowth-50.png" alt="Meowth" />
+          <img id="icon-profile-modal-button" class="modal-button" src="/images/icons8-meowth-50.png" alt="Meowth" />
         </div>
       <div id="header-sidebar-icons">
         <ul>
@@ -112,23 +80,34 @@
 <!--                                  </div>-->
 <!--                              </div>-->
                           </div>
-
                       </div>
-
                   </div>
               </div>
               <!--End of on click modal popup window -->
 <!--       end of start new chat button -->
         </li>
-          <li>
-            <button class="svg-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path 
-                d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z">
-              </path>
-            </svg>
-          </button>
-            </li>
+            <!-- Start of Three dot header sidebar button -->
+            <!-- THREE DOT HEADER SIDEBAR DROPDOWN -->
+            <div class="header-sidebar dropdown-wrapper">
+                <!-- THREE DOT HEADER SIDEBAR BUTTON -->
+
+                <button id="dropdown-button" class="svg-wrap dropdown-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path
+                                d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z">
+                        </path>
+                    </svg>
+                </button>
+
+                <div id="dropdown-content-id" class="dropdown-content">
+                    <ul>
+                        <li class="dropdown-item modal-button" id="newgroup-modal-button">New group</li>
+                        <li class="dropdown-item modal-button" id="profile-modal-button">Profile</li>
+                        <li class="dropdown-item modal-button" id="setting-modal-button">Settings</li>
+                        <li class="dropdown-item"><a href="login.html">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
         </ul>
       </div>
       </div>
@@ -161,15 +140,28 @@
           </button>
           </li>
           <!-- Three Vertical Dots Icon -->
-          <li>
-          <button class="svg-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path 
-                d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z">
-              </path>
-            </svg>
-          </button>
-          </li>
+<!--           THREE DOT HEADER MAIN DROPDOWN -->
+              <div class="header-sidebar dropdown-wrapper">
+                  <!-- THREE DOT HEADER MAIN BUTTON -->
+                  <button id="dropdown-button-main" class="svg-wrap dropdown-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                          <path
+                                  d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z">
+                          </path>
+                      </svg>
+                  </button>
+                  <!-- THREE DOT HEADER MAIN DROPDOWN CONTENT -->
+                  <div id="dropdown-content-main" class="dropdown-content">
+                      <ul>
+                          <li class="dropdown-item">Contact info</li>
+                          <li class="dropdown-item">Select messages</li>
+                          <li class="dropdown-item">Mute notifications</li>
+                          <li class="dropdown-item">Clear messages</li>
+                          <li class="dropdown-item">Delete chat</li>
+                      </ul>
+                  </div>
+              </div>
+              <!-- END OF THREE DOT HEADER MAIN DROPDOWN-->
           </ul>
       </div>
       </div>
