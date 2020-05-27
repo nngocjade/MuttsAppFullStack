@@ -269,19 +269,6 @@ function outsideClickButton(e) {
     }
   }
 }
-
-// ------------------ON CLICK DROP DOWN MENU (HEADER MAIN)------------------
-
-let dropDownButton2 = document.getElementById("dropdown-button-main");
-
-// ------click to open menu
-dropDownButton2.addEventListener("click", openDropdown2);
-
-//--------function to open menu
-function openDropdown2(event) {
-  document.getElementById("dropdown-content-main").classList.toggle("show");
-}
-
 // ------------------ON CLICK DROP DOWN MENU (HEADER MAIN)------------------
 
 let dropDownButton2 = document.getElementById("dropdown-button-main");
