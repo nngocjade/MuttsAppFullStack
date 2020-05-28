@@ -8,8 +8,6 @@
     <link rel="stylesheet" th:href="@{/css/muttsApp.css}" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display;=swap" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
-
   </head>
   <body>
   <input type="hidden" th:value="${user_id}" id="user_id" />
@@ -46,13 +44,13 @@
                           <button>
                               <i class="close-button fa fa-angle-left"></i>
                           </button>
-                          <h2>Select contact</h2>
+                          <h2 id="hTwo-Inner-Text" class="hTwo-Inner-Text"></h2>
 
                           <div id="modal-header-icon">
                               <!--                      add user icon-->
-                              <button>
-                                  <i class="close-button 	fa fa-user-plus"></i>
-                              </button>
+<!--                              <button>-->
+<!--                                  <i class="close-button 	fa fa-user-plus"></i>-->
+<!--                              </button>-->
                           </div>
                       </div>
 

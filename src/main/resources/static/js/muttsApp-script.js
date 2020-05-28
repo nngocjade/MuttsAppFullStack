@@ -174,12 +174,11 @@ newMessageForm.addEventListener("submit", function (event) {
   document.getElementById("new-message").value = " ";
 });
 //---------------------GET MODAL ELEMENT------------------------
-
 //---get modal element
 let modal = document.getElementById("popup-modal-window");
 
 //---get open modal button
-let modalButton = document.getElementById("modal-button");
+let newChatModalButton = document.getElementById("modal-button");
 //--open icon profile modal button
 let iconProfileModalButton = document.getElementById(
   "icon-profile-modal-button"
@@ -195,14 +194,66 @@ let settingModalButton = document.getElementById("setting-modal-button");
 let closeButton = document.getElementsByClassName("close-button")[0];
 
 //---listen for OPEN click
-modalButton.addEventListener("click", openModal);
-newGroupModalButton.addEventListener("click", openModal);
-profileModalButton.addEventListener("click", openModal);
-settingModalButton.addEventListener("click", openModal);
-iconProfileModalButton.addEventListener("click", openProfileModal);
+newChatModalButton.addEventListener("click", openNewChatModal);
+newGroupModalButton.addEventListener("click", openNewGroupModal);
+profileModalButton.addEventListener("click", openProfileModal);
+settingModalButton.addEventListener("click", openSettingsModal);
+iconProfileModalButton.addEventListener("click", openIconProfileModal);
+
+function openNewChatModal() {
+  //need to grab elementbyid in order to set innerHTML
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Select Contact";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  let button = document.createElement("button");
+  button.innerHTML = '<i class="close-button 	fa fa-user-plus"></i>';
+
+  modalHeaderIcon.appendChild(button);
+
+  openModal();
+}
+
+function openNewGroupModal() {
+  //need to grab elementbyid in order to set innerHTML
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "New Group";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  openModal();
+}
 
 function openProfileModal() {
-  // write content settings
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Profile";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  openModal();
+}
+
+function openSettingsModal() {
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Settings";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  openModal();
+}
+
+function openIconProfileModal() {
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Profile";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
   openModal();
 }
 
