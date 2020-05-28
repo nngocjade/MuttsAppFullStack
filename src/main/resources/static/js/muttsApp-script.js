@@ -338,26 +338,13 @@ function newUser() {
 // });
 
 window.addEventListener("DOMContentLoaded", () => {
-  02;
-  const button = document.querySelector("#emoji-button");
-  03;
+  const button = document.querySelector("#emoji-btn");
   const picker = new EmojiButton();
-  04;
-
-  05;
-  picker.on("emoji", (emoji) => {
-    06;
+  picker.on("emoji", emoji => {
     document.querySelector("#new-message").value += emoji;
-    07;
   });
-  08;
-
-  09;
   button.addEventListener("click", () => {
-    10;
     picker.pickerVisible ? picker.hidePicker() : picker.showPicker(button);
-    11;
   });
-  12;
 });
 
