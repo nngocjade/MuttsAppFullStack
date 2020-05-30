@@ -181,21 +181,27 @@ header {
   transition: 0.2s;
   width: 0;
   background-color: white;
+  padding: 0;
 }
 
 /* ========================================================
                           SIDEBAR
 ==========================================================*/
 .sidebar {
-  width: 30%;
-  height: 100%;
-  color: #656a6d;
+    width: 30%;
+    height: 100%;
+    color: #656a6d;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f4f4f4;
 }
 
 /* This is the wrap around the message */
 .sidebar > .message-preview-wrap {
   width: 100%;
-  height: 100%;
+  /*45px is the search form height */
+  height: (100% - 45px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -411,7 +417,6 @@ li.emoji-picker__tab:hover > svg > path {
 .modal-content {
   width: 100%;
   height: 100%;
-  padding-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -429,6 +434,7 @@ li.emoji-picker__tab:hover > svg > path {
   border-radius: 20px;
   background-color: white;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .form-wrap form {
