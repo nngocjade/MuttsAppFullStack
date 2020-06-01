@@ -456,7 +456,7 @@ input[name="search"] {
   outline: none; /* === this gets rid of the blue outline ===*/
 }
 
-.float {
+.float-button {
   position: fixed;
   width: 60px;
   height: 60px;
@@ -469,17 +469,17 @@ input[name="search"] {
   transition: all 0.5s;
 }
 
-.float > i {
+.float-button > i {
   transition: all 0.5s;
   margin-top: 22px;
 }
 
-.float:hover {
+.float-button:hover {
   transform: scale(1.1);
   background-color: rgb(75, 218, 182);
 }
 
-.float:hover > i {
+.float-button:hover > i {
   transform: scale(1.2);
 }
 /* ------------------CONTACT SECTION------------------ */
