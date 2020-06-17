@@ -585,6 +585,12 @@ input[name="search"] {
   margin-top: 1em;
 }
 
+.settings-div:hover {
+  background-color: rgb(231, 230, 230);
+  color: rgb(165, 164, 164);
+  cursor: pointer;
+}
+
 .setting-icon {
   margin: 1em;
   padding-left: 1em;
