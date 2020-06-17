@@ -7,7 +7,8 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/muttsApp.css}" />
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display;=swap" type="text/css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
   </head>
   <body>
   <input type="hidden" th:value="${user_id}" id="user_id" />
@@ -40,7 +41,7 @@
               <!--            ON CLICK MODAL SLIDING WINDOW-->
               <div id="popup-modal-window" class="modal-window">
                   <div class="modal-body">
-                      <div class="modal-header">
+                      <div ID="modal-header-id" class="modal-header">
                           <button>
                               <i class="close-button fa fa-angle-left"></i>
                           </button>

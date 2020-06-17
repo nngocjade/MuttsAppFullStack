@@ -202,6 +202,114 @@ profileModalButton.addEventListener("click", openProfileModal);
 settingModalButton.addEventListener("click", openSettingsModal);
 iconProfileModalButton.addEventListener("click", openIconProfileModal);
 
+// --------------CREATE FLOATING SEND BUTTON----------//
+function createFloatingSendButton() {
+  let floatButton = document.createElement("div");
+  floatButton.classList.add("float-button");
+  floatButton.setAttribute("id", "float-button-id");
+  floatButton.innerHTML = '<i class="float-angle-icon fa fa-arrow-right"></i>';
+
+  let modalContent = document.getElementById("modal-content-id");
+  modalContent.append(floatButton);
+}
+
+//--------------OPEN NEW CHAT MODAL----------//
+function openNewChatModal() {
+  let modalContent = document.getElementById("modal-content-id");
+  modalContent.innerHTML = "";
+  //need to grab elementbyid in order to set innerHTML
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Select Contact";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  let button = document.createElement("button");
+  button.innerHTML = '<i class="close-button 	fa fa-user-plus"></i>';
+
+  modalHeaderIcon.appendChild(button);
+
+  createSearchBox();
+  createContactPreviewBox();
+  createFloatingSendButton();
+  openModal();
+}
+
+//-------------OPEN NEW GROUP MODAL ---------------
+
+function openNewGroupModal() {
+  let modalContent = document.getElementById("modal-content-id");
+  modalContent.innerHTML = "";
+  //need to grab elementbyid in order to set innerHTML
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Add group participant";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  let button = document.createElement("button");
+  button.innerHTML = '<i class="close-button 	fa fa-user-plus"></i>';
+
+  modalHeaderIcon.appendChild(button);
+
+  createSearchBox();
+  createContactPreviewBox();
+  createFloatingSendButton();
+  openModal();
+}
+
+//-------------OPEN PROFILE MODAL ---------------
+
+function openProfileModal() {
+  let modalContent = document.getElementById("modal-content-id");
+  modalContent.innerHTML = "";
+
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Profile";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  createEditProfileImage();
+  createEditName();
+  createEditAbout();
+  openModal();
+}
+
+//-------------OPEN SETTINGS MODAL ---------------
+
+function openSettingsModal() {
+  let modalContent = document.getElementById("modal-content-id");
+  modalContent.innerHTML = "";
+
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Settings";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  createSettingsModal();
+  openModal();
+}
+
+//--------------OPEN ICON PROFILE MODAL -----------------
+
+function openIconProfileModal() {
+  let modalContent = document.getElementById("modal-content-id");
+  modalContent.innerHTML = "";
+
+  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
+  hTwoInnerText.innerHTML = "Profile";
+
+  let modalHeaderIcon = document.getElementById("modal-header-icon");
+  modalHeaderIcon.innerHTML = "";
+
+  createEditProfileImage();
+  createEditName();
+  createEditAbout();
+  openModal();
+}
+
 //------------CREATE SEARCH BOX---------------
 function createSearchBox() {
   let searchFormWrap = document.createElement("div");
@@ -264,80 +372,165 @@ function createContactPreviewBox() {
   modalContent.appendChild(contactPreviewWrapper);
 }
 
-// --------------CREATE FLOATING SEND BUTTON----------
-function createFloatingSendButton() {
-  let floatButton = document.createElement("div");
-  floatButton.classList.add("float-button");
-  floatButton.setAttribute("id", "float-button-id");
-  floatButton.innerHTML = '<i class="float-angle-icon fa fa-arrow-right"></i>';
+//-------------CREATE EDIT PROFILE IMAGE------------------
+
+function createEditProfileImage() {
+  let imgWrap = document.createElement("div");
+  imgWrap.classList.add("img-wrap");
+  imgWrap.setAttribute("id", "edit-profile-img-div");
+  let image = document.createElement("img");
+  image.setAttribute("src", "./images/icons8-pikachu-pokemon-50.png");
+  image.setAttribute("alt", "default icon");
+  image.setAttribute("id", "edit-profile-img");
+
+  imgWrap.appendChild(image);
 
   let modalContent = document.getElementById("modal-content-id");
-  modalContent.append(floatButton);
+  modalContent.classList.add("edit-profile-modal-content");
+  modalContent.appendChild(imgWrap);
 }
 
-function openNewChatModal() {
+//---------------CREATE EDIT NAME-----------------
+
+function createEditName() {
+  let editNameWrap = document.createElement("div");
+  editNameWrap.classList.add("div-wrap");
+  editNameWrap.setAttribute("id", "edit-name-wrap-id");
+
+  let yourNameP = document.createElement("p");
+  yourNameP.setAttribute("id", "your-name-p-static");
+  yourNameP.innerHTML = "Your Poke Name";
+
+  let editNameForm = document.createElement("form");
+  editNameForm.classList.add("modal-form-wrap");
+
+  editNameForm.innerHTML = '<i class="fas fa-pen"></i>';
+
+  let editNameInput = document.createElement("input");
+  editNameInput.setAttribute("type", "text");
+  editNameInput.setAttribute("name", "name");
+  editNameInput.setAttribute("id", "name-input-id");
+  editNameInput.setAttribute("placeholder", "Poke Name..");
+
+  editNameForm.appendChild(editNameInput);
+
+  editNameWrap.appendChild(yourNameP);
+  editNameWrap.appendChild(editNameForm);
+
+  let staticTextWrap = document.createElement("div");
+  staticTextWrap.setAttribute("id", "static-name-wrap-id");
+
+  let staticTextP = document.createElement("p");
+  staticTextP.setAttribute("id", "static-text-p");
+  staticTextP.innerHTML =
+    "This is not your username or pin. This name will be visible to your PokeChat contacts.";
+
+  staticTextWrap.appendChild(staticTextP);
+
   let modalContent = document.getElementById("modal-content-id");
-  modalContent.innerHTML = "";
-  //need to grab elementbyid in order to set innerHTML
-  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
-  hTwoInnerText.innerHTML = "Select Contact";
-
-  let modalHeaderIcon = document.getElementById("modal-header-icon");
-  modalHeaderIcon.innerHTML = "";
-
-  let button = document.createElement("button");
-  button.innerHTML = '<i class="close-button 	fa fa-user-plus"></i>';
-
-  modalHeaderIcon.appendChild(button);
-
-  createSearchBox();
-  createContactPreviewBox();
-  createFloatingSendButton();
-  openModal();
+  modalContent.appendChild(editNameWrap);
+  modalContent.appendChild(staticTextWrap);
 }
 
-function openNewGroupModal() {
-  //need to grab elementbyid in order to set innerHTML
-  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
-  hTwoInnerText.innerHTML = "Add group participants";
+//--------CREATE EDIT ABOUT-----------
 
-  let modalHeaderIcon = document.getElementById("modal-header-icon");
-  modalHeaderIcon.innerHTML = "";
+function createEditAbout() {
+  let editAboutWrap = document.createElement("div");
+  editAboutWrap.classList.add("div-wrap");
+  editAboutWrap.setAttribute("id", "edit-about-wrap-id");
 
-  openModal();
+  let aboutP = document.createElement("p");
+  aboutP.setAttribute("id", "your-about-p-static");
+  aboutP.innerHTML = "About";
+
+  let editAboutForm = document.createElement("form");
+  editAboutForm.classList.add("modal-form-wrap");
+
+  editAboutForm.innerHTML = '<i class="fas fa-pen"></i>';
+
+  let editAboutInput = document.createElement("input");
+  editAboutInput.setAttribute("type", "text");
+  editAboutInput.setAttribute("name", "about");
+  editAboutInput.setAttribute("id", "about-input-id");
+  editAboutInput.setAttribute("placeholder", "about me...");
+
+  editAboutForm.appendChild(editAboutInput);
+
+  editAboutWrap.appendChild(aboutP);
+  editAboutWrap.appendChild(editAboutForm);
+
+  let modalContent = document.getElementById("modal-content-id");
+  modalContent.appendChild(editAboutWrap);
 }
 
-function openProfileModal() {
-  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
-  hTwoInnerText.innerHTML = "Profile";
+// ------------CREATE SETTINGS MODAL--------------------
 
-  let modalHeaderIcon = document.getElementById("modal-header-icon");
-  modalHeaderIcon.innerHTML = "";
+function createSettingsModal() {
+  let profileImgNameDiv = document.createElement("div");
+  profileImgNameDiv.setAttribute("id", "profile-img-name-div-id");
+  profileImgNameDiv.classList.add("img-wrap");
 
-  openModal();
-}
+  let miniProfileImg = document.createElement("img");
+  miniProfileImg.setAttribute("src", "./images/icons8-pikachu-pokemon-50.png");
+  miniProfileImg.setAttribute("alt", "mini profile image");
+  miniProfileImg.setAttribute("id", "setting-mini-profile-img");
 
-function openSettingsModal() {
-  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
-  hTwoInnerText.innerHTML = "Settings";
+  profileImgNameDiv.appendChild(miniProfileImg);
 
-  let modalHeaderIcon = document.getElementById("modal-header-icon");
-  modalHeaderIcon.innerHTML = "";
+  let profileName = document.createElement("p");
+  profileName.setAttribute("id", "profile-name-id");
+  profileName.innerHTML = "pikachu";
 
-  openModal();
-}
+  profileImgNameDiv.appendChild(profileName);
 
-function openIconProfileModal() {
-  let hTwoInnerText = document.getElementById("hTwo-Inner-Text");
-  hTwoInnerText.innerHTML = "Profile";
+  let notificationDiv = document.createElement("div");
+  notificationDiv.classList.add("settings-div");
+  notificationDiv.innerHTML = '<i class="fa fa-bell setting-icon"></i>';
 
-  let modalHeaderIcon = document.getElementById("modal-header-icon");
-  modalHeaderIcon.innerHTML = "";
+  let notificationP = document.createElement("p");
+  notificationP.classList.add("setting-modal-p");
+  notificationP.innerHTML = "Notification";
 
-  let modalContent = document.getElementsByClassName("modal-content");
-  modalContent.innerHTML = "";
+  notificationDiv.appendChild(notificationP);
 
-  openModal();
+  let ChatWallpaperDiv = document.createElement("div");
+  ChatWallpaperDiv.classList.add("settings-div");
+  ChatWallpaperDiv.innerHTML =
+    '<i class="material-icons setting-icon">crop_original</i>';
+
+  let ChatWallpaperP = document.createElement("p");
+  ChatWallpaperP.classList.add("setting-modal-p");
+  ChatWallpaperP.innerHTML = "Chat Wallpaper";
+
+  ChatWallpaperDiv.appendChild(ChatWallpaperP);
+
+  let BlockedDiv = document.createElement("div");
+  BlockedDiv.classList.add("settings-div");
+  BlockedDiv.innerHTML = '<i class="fa fa-ban setting-icon"></i>';
+
+  let BlockedP = document.createElement("p");
+  BlockedP.classList.add("setting-modal-p");
+  BlockedP.innerHTML = "Blocked";
+
+  BlockedDiv.appendChild(BlockedP);
+
+  let HelpDiv = document.createElement("div");
+  HelpDiv.classList.add("settings-div");
+  HelpDiv.innerHTML = '<i class="fa fa-question-circle setting-icon"></i>';
+
+  let HelpP = document.createElement("p");
+  HelpP.classList.add("setting-modal-p");
+  HelpP.innerHTML = "Help";
+
+  HelpDiv.appendChild(HelpP);
+
+  let modalContent = document.getElementById("modal-content-id");
+  modalContent.classList.add("setting-modal-content");
+  modalContent.appendChild(profileImgNameDiv);
+  modalContent.appendChild(notificationDiv);
+  modalContent.appendChild(ChatWallpaperDiv);
+  modalContent.appendChild(BlockedDiv);
+  modalContent.appendChild(HelpDiv);
 }
 
 //---listen for CLOSE click
